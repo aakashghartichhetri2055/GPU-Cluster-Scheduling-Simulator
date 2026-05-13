@@ -1,0 +1,559 @@
+{
+    "comparison": {
+        "experiment": "scheduler_comparison",
+        "num_users": 80,
+        "num_gpus": 8,
+        "agent_mix": {
+            "truthful": 0.5,
+            "greedy": 0.3,
+            "random": 0.1,
+            "learning": 0.1
+        },
+        "results": {
+            "fifo": {
+                "avg_waiting_time": 83.162,
+                "max_waiting_time": 248.0,
+                "avg_completion_time": 95.95,
+                "fairness_jain_waiting": 0.604,
+                "avg_manipulation_gap": 1.113,
+                "truthfulness_rate": 0.625,
+                "resource_utilization": 0.95,
+                "social_welfare": 300.4,
+                "game_theory_interpretation": "Baseline with limited strategic priority. Fair by arrival order but may ignore urgency.",
+                "counterfactual": {
+                    "avg_manipulation_advantage": 0.0,
+                    "manipulation_success_rate": 0.0,
+                    "lying_punished_rate": 0.0,
+                    "num_manipulated_jobs": 27,
+                    "definition": "positive value means lying reduced waiting time compared with truthful reporting",
+                    "examples": [
+                        {
+                            "job_id": 0,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 5,
+                            "actual_waiting_time": 25.0,
+                            "truthful_waiting_time": 25.0,
+                            "manipulation_advantage": 0.0
+                        },
+                        {
+                            "job_id": 4,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 6,
+                            "actual_waiting_time": 85.0,
+                            "truthful_waiting_time": 85.0,
+                            "manipulation_advantage": 0.0
+                        },
+                        {
+                            "job_id": 5,
+                            "agent_type": "random",
+                            "true_urgency": 6,
+                            "reported_urgency": 10,
+                            "actual_waiting_time": 0.0,
+                            "truthful_waiting_time": 0.0,
+                            "manipulation_advantage": 0.0
+                        },
+                        {
+                            "job_id": 9,
+                            "agent_type": "greedy",
+                            "true_urgency": 6,
+                            "reported_urgency": 9,
+                            "actual_waiting_time": 201.0,
+                            "truthful_waiting_time": 201.0,
+                            "manipulation_advantage": 0.0
+                        },
+                        {
+                            "job_id": 14,
+                            "agent_type": "greedy",
+                            "true_urgency": 5,
+                            "reported_urgency": 8,
+                            "actual_waiting_time": 128.0,
+                            "truthful_waiting_time": 128.0,
+                            "manipulation_advantage": 0.0
+                        }
+                    ]
+                },
+                "interpretation": {
+                    "equilibrium_claim": "Lying has low payoff; the mechanism moves behavior closer to truth-telling.",
+                    "mechanism_design_claim": "The mechanism does not strongly punish exaggeration.",
+                    "course_connection": [
+                        "Nash Equilibrium",
+                        "Dominant Strategy",
+                        "Mechanism Design",
+                        "Bayesian Games / Private Information",
+                        "Repeated Games and Punishment"
+                    ]
+                }
+            },
+            "priority": {
+                "avg_waiting_time": 115.225,
+                "max_waiting_time": 241.0,
+                "avg_completion_time": 128.012,
+                "fairness_jain_waiting": 0.741,
+                "avg_manipulation_gap": 1.113,
+                "truthfulness_rate": 0.625,
+                "resource_utilization": 0.961,
+                "social_welfare": -2777.6,
+                "game_theory_interpretation": "Manipulable mechanism: exaggerating urgency can become a rational best response.",
+                "counterfactual": {
+                    "avg_manipulation_advantage": 30.222,
+                    "manipulation_success_rate": 0.704,
+                    "lying_punished_rate": 0.296,
+                    "num_manipulated_jobs": 27,
+                    "definition": "positive value means lying reduced waiting time compared with truthful reporting",
+                    "examples": [
+                        {
+                            "job_id": 0,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 5,
+                            "actual_waiting_time": 148.0,
+                            "truthful_waiting_time": 226.0,
+                            "manipulation_advantage": 78.0
+                        },
+                        {
+                            "job_id": 4,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 6,
+                            "actual_waiting_time": 146.0,
+                            "truthful_waiting_time": 229.0,
+                            "manipulation_advantage": 83.0
+                        },
+                        {
+                            "job_id": 5,
+                            "agent_type": "random",
+                            "true_urgency": 6,
+                            "reported_urgency": 10,
+                            "actual_waiting_time": 0.0,
+                            "truthful_waiting_time": 27.0,
+                            "manipulation_advantage": 27.0
+                        },
+                        {
+                            "job_id": 9,
+                            "agent_type": "greedy",
+                            "true_urgency": 6,
+                            "reported_urgency": 9,
+                            "actual_waiting_time": 82.0,
+                            "truthful_waiting_time": 183.0,
+                            "manipulation_advantage": 101.0
+                        },
+                        {
+                            "job_id": 14,
+                            "agent_type": "greedy",
+                            "true_urgency": 5,
+                            "reported_urgency": 8,
+                            "actual_waiting_time": 104.0,
+                            "truthful_waiting_time": 128.0,
+                            "manipulation_advantage": 24.0
+                        }
+                    ]
+                },
+                "interpretation": {
+                    "equilibrium_claim": "Lying is highly profitable; manipulation is a rational best response.",
+                    "mechanism_design_claim": "The mechanism does not strongly punish exaggeration.",
+                    "course_connection": [
+                        "Nash Equilibrium",
+                        "Dominant Strategy",
+                        "Mechanism Design",
+                        "Bayesian Games / Private Information",
+                        "Repeated Games and Punishment"
+                    ]
+                }
+            },
+            "auction": {
+                "avg_waiting_time": 133.05,
+                "max_waiting_time": 242.0,
+                "avg_completion_time": 145.838,
+                "fairness_jain_waiting": 0.845,
+                "avg_manipulation_gap": 1.113,
+                "truthfulness_rate": 0.625,
+                "resource_utilization": 0.979,
+                "social_welfare": -4488.8,
+                "game_theory_interpretation": "Auction-style allocation: bids influence priority, connecting scheduling to mechanism design.",
+                "counterfactual": {
+                    "avg_manipulation_advantage": 21.963,
+                    "manipulation_success_rate": 0.667,
+                    "lying_punished_rate": 0.259,
+                    "num_manipulated_jobs": 27,
+                    "definition": "positive value means lying reduced waiting time compared with truthful reporting",
+                    "examples": [
+                        {
+                            "job_id": 0,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 5,
+                            "actual_waiting_time": 163.0,
+                            "truthful_waiting_time": 200.0,
+                            "manipulation_advantage": 37.0
+                        },
+                        {
+                            "job_id": 4,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 6,
+                            "actual_waiting_time": 133.0,
+                            "truthful_waiting_time": 206.0,
+                            "manipulation_advantage": 73.0
+                        },
+                        {
+                            "job_id": 5,
+                            "agent_type": "random",
+                            "true_urgency": 6,
+                            "reported_urgency": 10,
+                            "actual_waiting_time": 111.0,
+                            "truthful_waiting_time": 117.0,
+                            "manipulation_advantage": 6.0
+                        },
+                        {
+                            "job_id": 9,
+                            "agent_type": "greedy",
+                            "true_urgency": 6,
+                            "reported_urgency": 9,
+                            "actual_waiting_time": 48.0,
+                            "truthful_waiting_time": 166.0,
+                            "manipulation_advantage": 118.0
+                        },
+                        {
+                            "job_id": 14,
+                            "agent_type": "greedy",
+                            "true_urgency": 5,
+                            "reported_urgency": 8,
+                            "actual_waiting_time": 105.0,
+                            "truthful_waiting_time": 117.0,
+                            "manipulation_advantage": 12.0
+                        }
+                    ]
+                },
+                "interpretation": {
+                    "equilibrium_claim": "Lying is highly profitable; manipulation is a rational best response.",
+                    "mechanism_design_claim": "The mechanism does not strongly punish exaggeration.",
+                    "course_connection": [
+                        "Nash Equilibrium",
+                        "Dominant Strategy",
+                        "Mechanism Design",
+                        "Bayesian Games / Private Information",
+                        "Repeated Games and Punishment"
+                    ]
+                }
+            },
+            "incentive": {
+                "avg_waiting_time": 90.6,
+                "max_waiting_time": 242.0,
+                "avg_completion_time": 103.388,
+                "fairness_jain_waiting": 0.646,
+                "avg_manipulation_gap": 1.113,
+                "truthfulness_rate": 0.625,
+                "resource_utilization": 0.979,
+                "social_welfare": -413.6,
+                "game_theory_interpretation": "Incentive-aware allocation: exaggeration is penalized to reduce manipulation advantage.",
+                "counterfactual": {
+                    "avg_manipulation_advantage": -22.407,
+                    "manipulation_success_rate": 0.259,
+                    "lying_punished_rate": 0.741,
+                    "num_manipulated_jobs": 27,
+                    "definition": "positive value means lying reduced waiting time compared with truthful reporting",
+                    "examples": [
+                        {
+                            "job_id": 0,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 5,
+                            "actual_waiting_time": 112.0,
+                            "truthful_waiting_time": 175.0,
+                            "manipulation_advantage": 63.0
+                        },
+                        {
+                            "job_id": 4,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 6,
+                            "actual_waiting_time": 241.0,
+                            "truthful_waiting_time": 187.0,
+                            "manipulation_advantage": -54.0
+                        },
+                        {
+                            "job_id": 5,
+                            "agent_type": "random",
+                            "true_urgency": 6,
+                            "reported_urgency": 10,
+                            "actual_waiting_time": 100.0,
+                            "truthful_waiting_time": 60.0,
+                            "manipulation_advantage": -40.0
+                        },
+                        {
+                            "job_id": 9,
+                            "agent_type": "greedy",
+                            "true_urgency": 6,
+                            "reported_urgency": 9,
+                            "actual_waiting_time": 223.0,
+                            "truthful_waiting_time": 195.0,
+                            "manipulation_advantage": -28.0
+                        },
+                        {
+                            "job_id": 14,
+                            "agent_type": "greedy",
+                            "true_urgency": 5,
+                            "reported_urgency": 8,
+                            "actual_waiting_time": 221.0,
+                            "truthful_waiting_time": 89.0,
+                            "manipulation_advantage": -132.0
+                        }
+                    ]
+                },
+                "interpretation": {
+                    "equilibrium_claim": "Lying has low payoff; the mechanism moves behavior closer to truth-telling.",
+                    "mechanism_design_claim": "The mechanism frequently punishes exaggeration, reducing manipulation incentives.",
+                    "course_connection": [
+                        "Nash Equilibrium",
+                        "Dominant Strategy",
+                        "Mechanism Design",
+                        "Bayesian Games / Private Information",
+                        "Repeated Games and Punishment"
+                    ]
+                }
+            },
+            "ml_incentive": {
+                "avg_waiting_time": 99.05,
+                "max_waiting_time": 240.0,
+                "avg_completion_time": 111.838,
+                "fairness_jain_waiting": 0.691,
+                "avg_manipulation_gap": 1.113,
+                "truthfulness_rate": 0.625,
+                "resource_utilization": 0.987,
+                "social_welfare": -1224.8,
+                "game_theory_interpretation": "ML-assisted mechanism: predicted manipulation risk changes allocation score.",
+                "counterfactual": {
+                    "avg_manipulation_advantage": -26.704,
+                    "manipulation_success_rate": 0.333,
+                    "lying_punished_rate": 0.667,
+                    "num_manipulated_jobs": 27,
+                    "definition": "positive value means lying reduced waiting time compared with truthful reporting",
+                    "examples": [
+                        {
+                            "job_id": 0,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 5,
+                            "actual_waiting_time": 157.0,
+                            "truthful_waiting_time": 166.0,
+                            "manipulation_advantage": 9.0
+                        },
+                        {
+                            "job_id": 4,
+                            "agent_type": "greedy",
+                            "true_urgency": 1,
+                            "reported_urgency": 6,
+                            "actual_waiting_time": 194.0,
+                            "truthful_waiting_time": 207.0,
+                            "manipulation_advantage": 13.0
+                        },
+                        {
+                            "job_id": 5,
+                            "agent_type": "random",
+                            "true_urgency": 6,
+                            "reported_urgency": 10,
+                            "actual_waiting_time": 130.0,
+                            "truthful_waiting_time": 57.0,
+                            "manipulation_advantage": -73.0
+                        },
+                        {
+                            "job_id": 9,
+                            "agent_type": "greedy",
+                            "true_urgency": 6,
+                            "reported_urgency": 9,
+                            "actual_waiting_time": 237.0,
+                            "truthful_waiting_time": 178.0,
+                            "manipulation_advantage": -59.0
+                        },
+                        {
+                            "job_id": 14,
+                            "agent_type": "greedy",
+                            "true_urgency": 5,
+                            "reported_urgency": 8,
+                            "actual_waiting_time": 166.0,
+                            "truthful_waiting_time": 123.0,
+                            "manipulation_advantage": -43.0
+                        }
+                    ]
+                },
+                "interpretation": {
+                    "equilibrium_claim": "Lying has low payoff; the mechanism moves behavior closer to truth-telling.",
+                    "mechanism_design_claim": "The mechanism does not strongly punish exaggeration.",
+                    "course_connection": [
+                        "Nash Equilibrium",
+                        "Dominant Strategy",
+                        "Mechanism Design",
+                        "Bayesian Games / Private Information",
+                        "Repeated Games and Punishment"
+                    ]
+                }
+            }
+        },
+        "presentation_claim": "Compare how mechanism design changes strategic incentives and system-level outcomes.",
+        "what_to_show": [
+            "counterfactual.avg_manipulation_advantage",
+            "counterfactual.manipulation_success_rate",
+            "fairness_jain_waiting",
+            "avg_waiting_time",
+            "social_welfare"
+        ]
+    },
+    "greedy_sweep": {
+        "experiment": "greedy_sweep",
+        "research_question": "How robust is each scheduler as the share of strategic users increases?",
+        "rows": [
+            {
+                "greedy_level": 0.0,
+                "scheduler": "priority",
+                "avg_waiting_time": 96.438,
+                "fairness_jain_waiting": 0.704,
+                "social_welfare": -58.0,
+                "avg_manipulation_advantage": 0.0,
+                "manipulation_success_rate": 0.0,
+                "lying_punished_rate": 0.0
+            },
+            {
+                "greedy_level": 0.0,
+                "scheduler": "incentive",
+                "avg_waiting_time": 91.0,
+                "fairness_jain_waiting": 0.691,
+                "social_welfare": 464.0,
+                "avg_manipulation_advantage": 0.0,
+                "manipulation_success_rate": 0.0,
+                "lying_punished_rate": 0.0
+            },
+            {
+                "greedy_level": 0.0,
+                "scheduler": "ml_incentive",
+                "avg_waiting_time": 89.812,
+                "fairness_jain_waiting": 0.681,
+                "social_welfare": 578.0,
+                "avg_manipulation_advantage": 0.0,
+                "manipulation_success_rate": 0.0,
+                "lying_punished_rate": 0.0
+            },
+            {
+                "greedy_level": 0.25,
+                "scheduler": "priority",
+                "avg_waiting_time": 90.65,
+                "fairness_jain_waiting": 0.682,
+                "social_welfare": -238.4,
+                "avg_manipulation_advantage": 27.692,
+                "manipulation_success_rate": 0.769,
+                "lying_punished_rate": 0.231
+            },
+            {
+                "greedy_level": 0.25,
+                "scheduler": "incentive",
+                "avg_waiting_time": 88.325,
+                "fairness_jain_waiting": 0.655,
+                "social_welfare": -15.2,
+                "avg_manipulation_advantage": -30.385,
+                "manipulation_success_rate": 0.308,
+                "lying_punished_rate": 0.692
+            },
+            {
+                "greedy_level": 0.25,
+                "scheduler": "ml_incentive",
+                "avg_waiting_time": 93.275,
+                "fairness_jain_waiting": 0.664,
+                "social_welfare": -490.4,
+                "avg_manipulation_advantage": -50.923,
+                "manipulation_success_rate": 0.077,
+                "lying_punished_rate": 0.923
+            },
+            {
+                "greedy_level": 0.5,
+                "scheduler": "priority",
+                "avg_waiting_time": 101.438,
+                "fairness_jain_waiting": 0.699,
+                "social_welfare": -1826.0,
+                "avg_manipulation_advantage": 16.432,
+                "manipulation_success_rate": 0.622,
+                "lying_punished_rate": 0.324
+            },
+            {
+                "greedy_level": 0.5,
+                "scheduler": "incentive",
+                "avg_waiting_time": 83.425,
+                "fairness_jain_waiting": 0.66,
+                "social_welfare": -96.8,
+                "avg_manipulation_advantage": -25.514,
+                "manipulation_success_rate": 0.216,
+                "lying_punished_rate": 0.784
+            },
+            {
+                "greedy_level": 0.5,
+                "scheduler": "ml_incentive",
+                "avg_waiting_time": 88.938,
+                "fairness_jain_waiting": 0.643,
+                "social_welfare": -626.0,
+                "avg_manipulation_advantage": -31.135,
+                "manipulation_success_rate": 0.189,
+                "lying_punished_rate": 0.757
+            },
+            {
+                "greedy_level": 0.75,
+                "scheduler": "priority",
+                "avg_waiting_time": 107.75,
+                "fairness_jain_waiting": 0.693,
+                "social_welfare": -2828.0,
+                "avg_manipulation_advantage": 15.345,
+                "manipulation_success_rate": 0.691,
+                "lying_punished_rate": 0.273
+            },
+            {
+                "greedy_level": 0.75,
+                "scheduler": "incentive",
+                "avg_waiting_time": 90.675,
+                "fairness_jain_waiting": 0.684,
+                "social_welfare": -1188.8,
+                "avg_manipulation_advantage": 0.036,
+                "manipulation_success_rate": 0.436,
+                "lying_punished_rate": 0.509
+            },
+            {
+                "greedy_level": 0.75,
+                "scheduler": "ml_incentive",
+                "avg_waiting_time": 96.225,
+                "fairness_jain_waiting": 0.687,
+                "social_welfare": -1721.6,
+                "avg_manipulation_advantage": -6.2,
+                "manipulation_success_rate": 0.309,
+                "lying_punished_rate": 0.636
+            },
+            {
+                "greedy_level": 1.0,
+                "scheduler": "priority",
+                "avg_waiting_time": 97.638,
+                "fairness_jain_waiting": 0.673,
+                "social_welfare": -1681.2,
+                "avg_manipulation_advantage": 11.351,
+                "manipulation_success_rate": 0.568,
+                "lying_punished_rate": 0.365
+            },
+            {
+                "greedy_level": 1.0,
+                "scheduler": "incentive",
+                "avg_waiting_time": 85.338,
+                "fairness_jain_waiting": 0.62,
+                "social_welfare": -500.4,
+                "avg_manipulation_advantage": 16.392,
+                "manipulation_success_rate": 0.473,
+                "lying_punished_rate": 0.351
+            },
+            {
+                "greedy_level": 1.0,
+                "scheduler": "ml_incentive",
+                "avg_waiting_time": 91.037,
+                "fairness_jain_waiting": 0.63,
+                "social_welfare": -1047.6,
+                "avg_manipulation_advantage": -1.622,
+                "manipulation_success_rate": 0.351,
+                "lying_punished_rate": 0.459
+            }
+        ]
+    }
+}
